@@ -10,16 +10,24 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+let word = null;
+
+const saveWord = (word) => {
+  word = str  
+}
 
 const pigLatin = (str) => {
+  debugger;
   str = str.trim().toLowerCase();
   let firstVowel = str.match(/[aeiou]/);
   let firstPosition = str.indexOf(firstVowel);
   if (firstPosition > 0) {
+    // document.getElementById("user-input").innerHTML = str.slice(firstPosition) + str.slice(0, firstPosition) + 'ay';
     return str.slice(firstPosition) + str.slice(0, firstPosition) + 'ay';
   }
   return str + "yay";
-  }
+  // document.getElementById("user-input").innerHTML = str + "yay";
+}
 
 
 // the first function called in the program to get an input from the user
@@ -27,7 +35,7 @@ const pigLatin = (str) => {
 // to close it ctrl + C
 const getPrompt = () => {
   rl.question('word ', (answer) => {
-    console.log( pigLatin(answer) );
+    console.log(pigLatin(answer));
     getPrompt();
   });
 }
